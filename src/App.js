@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import config from './.config.json'
+import './App.css'
 
 import FollowerCount from "./components/FollowerCount.js";
 import LastFollower from "./components/LastFollower.js";
 
-const clientID = 'xxx'
-const clientSecret = 'xxx'
+const clientID = config.clientID
+const clientSecret = config.clientSecret
 const clientName = 'myKobaru'
 const myHeaders = new Headers({
   'Client-ID': clientID
