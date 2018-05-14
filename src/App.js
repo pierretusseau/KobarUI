@@ -1,9 +1,25 @@
 import React, { Component } from 'react'
 import config from './.config.json'
+import WebFont from 'webfontloader'
+import BigNoodle from './fonts/big_noodle_titling.ttf'
 import './App.css'
 
 import FollowerCount from "./components/FollowerCount.js";
 import LastFollower from "./components/LastFollower.js";
+
+console.dir(BigNoodle)
+
+const WebFontConfig = {
+  google: {
+    families: ['Droid Sans']
+  },
+  custom: {
+    families: ['BigNoodle'],
+    urls: [BigNoodle]
+  }
+}
+console.dir(WebFontConfig)
+WebFont.load(WebFontConfig)
 
 const clientID = config.clientID
 const clientSecret = config.clientSecret
@@ -29,7 +45,22 @@ class App extends Component {
       lastFollower: '',
       accessToken: ''
 		}
+  }
 
+  render() {
+    return (
+      <div className="App">
+        <FollowerCount
+          followerCount={this.state.followerCount}
+        />
+        <LastFollower
+          lastFollower={this.state.lastFollower}
+        />
+      </div>
+    );
+  }
+
+  componentDidMount() {
     // Récupération de l'ID Client + Total de follower + Dernier Follower
     fetch('https://api.twitch.tv/helix/users?login=' + clientName, fetchUsers)
     .then(res => {
@@ -69,19 +100,6 @@ class App extends Component {
         accessToken: responseJson.access_token
       })
     })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <FollowerCount
-          followerCount={this.state.followerCount}
-        />
-        <LastFollower
-          lastFollower={this.state.lastFollower}
-        />
-      </div>
-    );
   }
 }
 
