@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import config from './.config.json'
 import WebFont from 'webfontloader'
 import BigNoodle from './fonts/big_noodle_titling.ttf'
-import Doomfist from './img/df.png'
-import Trollface from './img/troll.png'
 import './App.css'
 
-import FollowerCount from "./components/FollowerCount.js";
-import LastFollower from "./components/LastFollower.js";
+import Header from "./components/Header.js";
+import MainContent from "./components/MainContent.js";
+import Footer from "./components/Footer.js";
 
 console.dir(BigNoodle)
 
@@ -52,29 +51,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          {}
-        </header>
-        <div className="main-content">
-          {}
-        </div>
-        <footer>
-          <div className="footer__left-column">
-            {}
-          </div>
-          <div className="footer__central-column">
-            <FollowerCount
-              followerCount={this.state.followerCount}
-              />
-            <LastFollower
-              lastFollower={this.state.lastFollower}
-              />
-          </div>
-          <div className="footer__right-column">
-            <img src={Doomfist} className="doomfist" alt="Doomfist cute" />
-            <img src={Trollface} className="trollface" alt="Trollface" />
-          </div>
-        </footer>
+        <Header />
+        <MainContent />
+        <Footer
+          followerCount={this.state.followerCount}
+          lastFollower={this.state.lastFollower}
+        />
       </div>
     );
   }

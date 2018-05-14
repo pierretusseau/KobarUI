@@ -9,9 +9,14 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
+    "build-css": "node-sass src/ -o src/",
+    "css": "npm run build-css && node-sass src/ -o src/ --watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0"
   }
 }

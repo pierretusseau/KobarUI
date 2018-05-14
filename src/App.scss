@@ -2,39 +2,47 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100px 1fr 50px;
-  height: 100vh; }
+  height: 100vh;
+}
 
 .App header {
   /* background: rgba(255,0,0,0.25); */
-  grid-column-end: span 2; }
+  grid-column-end: span 2;
+}
 
 .App .main-content {
   /* background: rgba(255,125,0,0.25); */
-  grid-column-end: span 2; }
+  grid-column-end: span 2;
+}
 
 .App footer {
   /* background: rgba(255,255,0,0.25); */
   grid-column-end: span 2;
   display: grid;
-  grid-template-columns: 50px 1fr 50px; }
+  grid-template-columns: 50px 1fr 50px;
+}
 
 .App .footer__left-column {
-  /* background: green; */ }
+  /* background: green; */
+}
 
 .App .footer__central-column {
   /* background: blue; */
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+}
 
 .App .footer__right-column {
-  /* background: purple; */ }
+  /* background: purple; */
+}
 
 .doomfist {
   position: absolute;
   bottom: -50px;
   right: 0;
-  max-width: 150px; }
+  max-width: 150px;
+}
 
 .trollface {
   pointer-events: none;
@@ -46,23 +54,30 @@
   transform: rotate(0deg);
   /* transition: 0.5s ease-in-out; */
   animation: trolling 2s infinite;
-  backface-visibility: hidden; }
-
-.trollface.fasttrollface {
-  animation: trolling 0.1s infinite; }
+  backface-visibility: hidden;
+  &.fasttrollface {
+    animation: trolling 0.1s infinite;
+  }
+}
 
 .text-component {
   text-align: center;
   color: white;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 .--uppercase {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 @keyframes trolling {
   0% {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   50% {
-    transform: rotate(20deg); }
+    transform: rotate(20deg);
+  }
   100% {
-    transform: rotate(0deg); } }
+    transform: rotate(0deg);
+  }
+}
