@@ -7,7 +7,7 @@ class FollowerCount extends Component {
     return (
 			<div id="FollowerCount" className="text-component --uppercase">
         <p>
-          Nombre de follower : {this.props.followerCount}
+          {this.props.followerCount} follower
         </p>
 			</div>
     );

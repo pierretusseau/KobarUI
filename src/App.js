@@ -120,11 +120,20 @@ class App extends Component {
       })
     })
 
-    document.querySelector('.doomfist').addEventListener('mousedown', function () {
-      document.querySelector('.trollface').classList.toggle('fasttrollface')
+    const theDoomfist = document.querySelector('.doomfist')
+    const theTrollface = document.querySelector('.trollface')
+
+    theDoomfist.addEventListener('mousedown', function (e) {
+      e.preventDefault()
+      theTrollface.classList.toggle('fasttrollface')
     })
-    document.querySelector('.doomfist').addEventListener('mouseup', function () {
-      document.querySelector('.trollface').classList.toggle('fasttrollface')
+    theDoomfist.addEventListener('mouseup', function () {
+      theTrollface.classList.toggle('fasttrollface')
+    })
+    theDoomfist.addEventListener('mouseout', function () {
+      if (theTrollface.classList.contains('fasttrollface')) {
+        theTrollface.classList.remove('fasttrollface')
+      }
     })
   }
 }
