@@ -5,8 +5,10 @@ import './FollowerCount.css';
 class FollowerCount extends Component {
   render() {
     return (
-			<div id="FollowerCount">
-        Nombre de follower : {this.props.followerCount}
+			<div id="FollowerCount" className="text-component --uppercase">
+        <p>
+          Nombre de follower : {this.props.followerCount}
+        </p>
 			</div>
     );
   }

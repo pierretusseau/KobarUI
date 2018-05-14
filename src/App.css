@@ -1,28 +1,78 @@
 .App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 1fr 50px;
+  height: 100vh;
+}
+
+.App header {
+  /* background: rgba(255,0,0,0.25); */
+  grid-column-end: span 2;
+}
+
+.App .main-content {
+  /* background: rgba(255,125,0,0.25); */
+  grid-column-end: span 2;
+}
+
+.App footer {
+  /* background: rgba(255,255,0,0.25); */
+  grid-column-end: span 2;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+}
+
+.App .footer__left-column {
+  /* background: green; */
+}
+
+.App .footer__central-column {
+  /* background: blue; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.App .footer__right-column {
+  /* background: purple; */
+}
+
+.doomfist {
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  max-width: 150px;
+}
+
+.trollface {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  max-width: 100px;
+  z-index: 1;
+  transform: rotate(0deg);
+  /* transition: 0.5s ease-in-out; */
+  animation: trolling 5s infinite;
+}
+
+.text-component {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
   color: white;
+  font-weight: bold;
 }
 
-.App-title {
-  font-size: 1.5em;
+.--uppercase {
+  text-transform: uppercase;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes trolling {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

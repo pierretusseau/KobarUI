@@ -5,8 +5,10 @@ import './LastFollower.css';
 class LastFollower extends Component {
   render() {
     return (
-			<div id="LastFollower">
-        Dernier follower : {this.props.lastFollower}
+			<div id="LastFollower" className="text-component">
+        <p>
+          <span className="--uppercase">Dernier follower</span> : {this.props.lastFollower}
+        </p>
 			</div>
     );
   }

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import config from './.config.json'
 import WebFont from 'webfontloader'
 import BigNoodle from './fonts/big_noodle_titling.ttf'
+import Doomfist from './img/df.png'
+import Trollface from './img/troll.png'
 import './App.css'
 
 import FollowerCount from "./components/FollowerCount.js";
@@ -50,12 +52,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FollowerCount
-          followerCount={this.state.followerCount}
-        />
-        <LastFollower
-          lastFollower={this.state.lastFollower}
-        />
+        <header>
+          {}
+        </header>
+        <div className="main-content">
+          {}
+        </div>
+        <footer>
+          <div className="footer__left-column">
+            {}
+          </div>
+          <div className="footer__central-column">
+            <FollowerCount
+              followerCount={this.state.followerCount}
+              />
+            <LastFollower
+              lastFollower={this.state.lastFollower}
+              />
+          </div>
+          <div className="footer__right-column">
+            <img src={Doomfist} className="doomfist" alt="Doomfist cute" />
+            <img src={Trollface} className="trollface" alt="Trollface" />
+          </div>
+        </footer>
       </div>
     );
   }
