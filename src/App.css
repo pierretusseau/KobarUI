@@ -45,6 +45,7 @@
 }
 
 .trollface {
+  pointer-events: none;
   position: absolute;
   bottom: 20px;
   right: 0;
@@ -52,7 +53,11 @@
   z-index: 1;
   transform: rotate(0deg);
   /* transition: 0.5s ease-in-out; */
-  animation: trolling 5s infinite;
+  animation: trolling 2s infinite;
+  backface-visibility: hidden;
+}
+.trollface.fasttrollface {
+  animation: trolling 0.1s infinite;
 }
 
 .text-component {

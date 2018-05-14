@@ -119,6 +119,13 @@ class App extends Component {
         accessToken: responseJson.access_token
       })
     })
+
+    document.querySelector('.doomfist').addEventListener('mousedown', function () {
+      document.querySelector('.trollface').classList.toggle('fasttrollface')
+    })
+    document.querySelector('.doomfist').addEventListener('mouseup', function () {
+      document.querySelector('.trollface').classList.toggle('fasttrollface')
+    })
   }
 }
 
