@@ -17,6 +17,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "node-sass": "^4.9.0"
+    "node-sass": "^4.9.0",
+    "styled-components": "^3.2.6"
   }
 }

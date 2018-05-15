@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
+import Par from '../commons/GenericRules'
 
-import './FollowerCount.css';
+const Wrapper = styled.div`
+  // font-size: 1.5em;
+  // font-weight: bold;
+  font-family: 'Droid Sans';
+  color: white;
+`
 
 class FollowerCount extends Component {
   render() {
     return (
-			<div id="FollowerCount" className="text-component --uppercase">
-        <p>
+			<Wrapper>
+        <Par color='#f00'>
           {this.props.followerCount} followers
-        </p>
-			</div>
+        </Par>
+			</Wrapper>
     );
   }
 }

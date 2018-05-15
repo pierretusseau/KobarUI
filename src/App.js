@@ -1,40 +1,20 @@
 import React, { Component } from 'react'
-import config from './.config.json'
 import WebFont from 'webfontloader'
-import BigNoodle from './fonts/big_noodle_titling.ttf'
+// import BigNoodle from './fonts/big_noodle_titling.ttf'
 import './App.css'
+
+import { getFollower } from './components/fetch/InitFetch'
 
 import Header from "./components/Header.js";
 import MainContent from "./components/MainContent.js";
 import Footer from "./components/Footer.js";
 
-console.dir(BigNoodle)
-
 const WebFontConfig = {
   google: {
     families: ['Droid Sans']
-  },
-  custom: {
-    families: ['BigNoodle'],
-    urls: [BigNoodle]
   }
 }
-console.dir(WebFontConfig)
 WebFont.load(WebFontConfig)
-
-const clientID = config.clientID
-const clientSecret = config.clientSecret
-const clientName = 'myKobaru'
-const myHeaders = new Headers({
-  'Client-ID': clientID
-})
-const fetchPost = {
-  method: 'POST'
-}
-const fetchUsers = {
-  method: 'GET',
-  headers: myHeaders
-}
 
 class App extends Component {
   constructor() {
@@ -62,44 +42,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // Récupération de l'ID Client + Total de follower + Dernier Follower
-    fetch('https://api.twitch.tv/helix/users?login=' + clientName, fetchUsers)
-    .then(res => {
-      return res.json()
-    })
-    .then(resJson => {
-      this.setState({
-        userId: resJson.data[0].id
-      })
-      fetch('https://api.twitch.tv/helix/users/follows?to_id=' + this.state.userId, fetchUsers)
-      .then(res => {
-        return res.json()
-      })
-      .then(resJson => {
-        this.setState({
-          followerCount: resJson.total
-        })
-        fetch('https://api.twitch.tv/helix/users?id=' + resJson.data[0].from_id, fetchUsers)
-        .then(res => {
-          return res.json()
-        })
-        .then(resJson => {
-          this.setState({
-            lastFollower: resJson.data[0].display_name
-          })
-        })
-      })
-    })
-
-    // Récupération de l'Access Token
-    fetch('https://id.twitch.tv/oauth2/token?client_id=' + clientID + '&client_secret=' + clientSecret + '&grant_type=client_credentials', fetchPost)
-    .then(res => {
-      return res.json()
-    })
-    .then(responseJson => {
-      this.setState({
-        accessToken: responseJson.access_token
-      })
+    getFollower().then(res => {
+      this.setState(res)
     })
 
     const theDoomfist = document.querySelector('.doomfist')

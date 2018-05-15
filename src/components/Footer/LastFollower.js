@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-
-import './LastFollower.css';
+import styled from 'styled-components'
+import Par from '../commons/GenericRules'
 
 class LastFollower extends Component {
   render() {
     return (
 			<div id="LastFollower" className="text-component">
-        <p>
+        <Par color='#f80'>
           <span className="--uppercase">Dernier follower</span> : {this.props.lastFollower}
-        </p>
+        </Par>
 			</div>
     );
   }

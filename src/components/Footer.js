@@ -6,8 +6,6 @@ import Trollface from '../img/troll.png'
 import FollowerCount from "./Footer/FollowerCount.js";
 import LastFollower from "./Footer/LastFollower.js";
 
-import './Footer.css';
-
 class Footer extends Component {
   render() {
     return (
