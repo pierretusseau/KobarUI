@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 
 import Doomfist from '../img/df.png'
 import Trollface from '../img/troll.png'
@@ -6,10 +7,15 @@ import Trollface from '../img/troll.png'
 import FollowerCount from "./Footer/FollowerCount.js";
 import LastFollower from "./Footer/LastFollower.js";
 
+const TheFooter = styled.footer`
+  font-size: 25px;
+  line-height: 50px;
+`
+
 class Footer extends Component {
   render() {
     return (
-      <footer>
+      <TheFooter>
         <div className="footer__left-column">
           {}
         </div>
@@ -25,7 +31,7 @@ class Footer extends Component {
           <img src={Doomfist} className="doomfist" alt="Doomfist cute" />
           <img src={Trollface} className="trollface" alt="Trollface" />
         </div>
-      </footer>
+      </TheFooter>
     );
   }
 }

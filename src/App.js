@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import WebFont from 'webfontloader'
-// import BigNoodle from './fonts/big_noodle_titling.ttf'
 import './App.css'
 
 import { getFollower } from './components/fetch/InitFetch'

@@ -1,7 +1,7 @@
 import config from '../../.config.json'
 
 const clientID = config.clientID
-const clientSecret = config.clientSecret
+// const clientSecret = config.clientSecret
 const clientName = 'myKobaru'
 const myHeaders = new Headers({
   'Client-ID': clientID
