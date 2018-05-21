@@ -14,7 +14,6 @@ injectGlobal`
     font-family: 'BigNoodle';
     color: white;
   }
-
   p {
     margin: 0;
     color: ${ThemePrimaryColor};

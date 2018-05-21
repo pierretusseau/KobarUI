@@ -29,6 +29,11 @@
   position: relative;
 }
 
+.App .footer__central-column > div:not(:last-child) {
+  width: 15vw;
+  text-align: center;
+}
+
 .App .footer__right-column {
   /* background: purple; */ }
 

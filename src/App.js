@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import { getFollower } from './components/fetch/InitFetch'
+import { getFollower } from './components/fetch/InitFetchTwitch'
+import { getCurrentSong } from './components/fetch/InitFetchSpotify'
+import { getTweet } from './components/fetch/InitFetchTwitter'
 
 import Header from "./components/Header.js";
 import MainContent from "./components/MainContent.js";
@@ -46,6 +48,10 @@ class App extends Component {
   // />
 
   componentDidMount() {
+    getTweet() // TODO: Récupérer un tweet en gérant la requête en Node
+
+    getCurrentSong() // TODO: Faire un node pour gérer les requêtes spotify (Kevbac Trello vert)
+
     getFollower().then(res => {
       this.setState(res)
     })

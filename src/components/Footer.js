@@ -10,10 +10,12 @@ import LastFollower from "./LastFollower.js";
 // Imports propres au footer
 import BottomBar from "./Overwatch/BottomBar.js";
 
-
 const TheFooter = styled.footer`
   font-size: 25px;
   line-height: 50px;
+  @media(max-width: 1350px) {
+    font-size: 1.8vw;
+  }
 `
 
 class Footer extends Component {
