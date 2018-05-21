@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import WebFont from 'webfontloader'
 import './App.css'
 
 import { getFollower } from './components/fetch/InitFetch'
@@ -8,18 +7,17 @@ import Header from "./components/Header.js";
 import MainContent from "./components/MainContent.js";
 import Footer from "./components/Footer.js";
 
-const WebFontConfig = {
-  google: {
-    families: ['Droid Sans']
-  }
-}
-WebFont.load(WebFontConfig)
+// import { SketchPicker } from 'react-color'
+// import ColorPicker from "./components/ColorPicker.js";
 
 class App extends Component {
   constructor() {
     super()
 
 		this.state = {
+      globalStyle: {
+        primaryColor: '#fac'
+      },
 			followerCount: 0,
       userId: '',
       lastFollower: '',
@@ -35,10 +33,17 @@ class App extends Component {
         <Footer
           followerCount={this.state.followerCount}
           lastFollower={this.state.lastFollower}
+          primaryColor={this.state.globalStyle.primaryColor}
         />
       </div>
     );
   }
+
+  // TODO: AJOUTER LE COMPONENT COLOR PICKER (Trello vert)
+  // <ColorPicker
+  //   color={ this.state.globalStyle.primaryColor }
+  //   onChangeComplete={ this.handleChangeComplete }
+  // />
 
   componentDidMount() {
     getFollower().then(res => {
@@ -63,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

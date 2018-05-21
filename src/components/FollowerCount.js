@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Wrapper, Par, SpanUppercase} from '../commons/GlobalStyles'
+import {Wrapper, Par, SpanUppercase} from './commons/GlobalStyles'
 
 class FollowerCount extends Component {
   render() {

@@ -1,7 +1,7 @@
 import styled,{ injectGlobal }  from 'styled-components'
 import BigNoodle from '../../fonts/big_noodle_titling_oblique.ttf'
 
-let ThemePrimaryColor = 'red'
+let ThemePrimaryColor = '#fff'
 
 injectGlobal`
   @font-face {
@@ -18,17 +18,18 @@ injectGlobal`
   p {
     margin: 0;
     color: ${ThemePrimaryColor};
-    font-weight: bold
+    font-weight: bold;
+  }
+  .sketch-picker {
+    position: absolute;
   }
 `
 
 const Wrapper = styled.div`
 `
-
 const Par = styled.p`
-color: ${props => props.color ? props.color : ThemePrimaryColor};
+  color: ${props => props.color ? props.color : ThemePrimaryColor};
 `
-
 const SpanUppercase = styled.span`
   text-transform: uppercase;
 `

@@ -25,7 +25,9 @@
   /* background: blue; */
   display: flex;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  position: relative;
+}
 
 .App .footer__right-column {
   /* background: purple; */ }
@@ -39,7 +41,7 @@
 .trollface {
   pointer-events: none;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   right: 0;
   max-width: 100px;
   z-index: 1;
@@ -49,7 +51,7 @@
   backface-visibility: hidden; }
 
 .trollface.fasttrollface {
-  animation: trolling 0.1s infinite; }
+  animation: trolling 0.12s infinite; }
 
 .text-component {
   text-align: center;

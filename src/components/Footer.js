@@ -4,8 +4,12 @@ import styled from 'styled-components'
 import Doomfist from '../img/df.png'
 import Trollface from '../img/troll.png'
 
-import FollowerCount from "./Footer/FollowerCount.js";
-import LastFollower from "./Footer/LastFollower.js";
+import FollowerCount from "./FollowerCount.js";
+import LastFollower from "./LastFollower.js";
+
+// Imports propres au footer
+import BottomBar from "./Overwatch/BottomBar.js";
+
 
 const TheFooter = styled.footer`
   font-size: 25px;
@@ -26,6 +30,7 @@ class Footer extends Component {
           <LastFollower
             lastFollower={this.props.lastFollower}
             />
+          <BottomBar />
         </div>
         <div className="footer__right-column">
           <img src={Doomfist} className="doomfist" alt="Doomfist cute" />
