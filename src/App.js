@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import './App.css'
 
+
 import { getFollower } from './components/fetch/InitFetchTwitch'
 import { getCurrentSong } from './components/fetch/InitFetchSpotify'
 import { getTweet } from './components/fetch/InitFetchTwitter'
+
+import Spotify from 'spotify-web-api-js'
 
 import Header from "./components/Header.js";
 import MainContent from "./components/MainContent.js";
@@ -12,11 +15,22 @@ import Footer from "./components/Footer.js";
 // import { SketchPicker } from 'react-color'
 // import ColorPicker from "./components/ColorPicker.js";
 
+const spotifyWebApi = new Spotify()
+
 class App extends Component {
   constructor() {
     super()
 
+    const params = this.getHashParams()
+
 		this.state = {
+      spotify: {
+        loggenIn: params.access_token ? true : false,
+        nowPlaying: {
+          name: 'Not checked',
+          image: ''
+        }
+      },
       globalStyle: {
         primaryColor: '#fac'
       },
@@ -25,6 +39,35 @@ class App extends Component {
       lastFollower: '',
       accessToken: ''
 		}
+    if (params.access_token) {
+      spotifyWebApi.setAccessToken(params.access_token)
+    }
+  }
+
+  getHashParams () {
+    var hashParams = {};
+    var e, r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+    while ( e = r.exec(q)) {
+        hashParams[e[1]] = decodeURIComponent(e[2]);
+    }
+    return hashParams;
+  }
+
+  getNowPlaying () {
+    // console.log('get now playing')
+    spotifyWebApi.getMyCurrentPlaybackState()
+    .then((res) => {
+      console.log(res)
+      this.setState({
+        spotify: {
+            nowPlaying: {
+            name: res.item.name,
+            image: res.item.album.images[0].url
+          }
+        }
+      })
+    })
   }
 
   render() {
@@ -37,6 +80,18 @@ class App extends Component {
           lastFollower={this.state.lastFollower}
           primaryColor={this.state.globalStyle.primaryColor}
         />
+        <a href="http://localhost:8888">
+          <button>Login spotify</button>
+        </a>
+        <div>
+          Now playing: { this.state.spotify.nowPlaying.name }
+        </div>
+        <div>
+          <img src={ this.state.spotify.nowPlaying.image } style={{ width:100 }}/>
+        </div>
+        <button onClick={ () => this.getNowPlaying() }>
+          Check now playing
+        </button>
       </div>
     );
   }
